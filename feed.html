@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduGuard Feed</title>
+  <link rel="stylesheet" href="feed.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>🛡️ EduGuard Live Feed</h1>
+
+  <!-- 🌐 Dark Mode Toggle -->
+  <label>
+    <input type="checkbox" id="darkToggle" />
+    🌙 Dark Mode
+  </label>
+
+  <!-- 🔍 Search & Clear -->
+  <div style="margin: 10px 0;">
+    <input type="text" id="searchInput" placeholder="Search by exam or center..." />
+    <button onclick="clearSearch()">❌ Clear</button>
+  </div>
+
+  <!-- 🧮 Tag Filters -->
+  <div id="tagFilters"></div>
+
+  <!-- ⏳ Loading Spinner -->
+  <div id="loader" class="spinner"></div>
+
+  <!-- 📊 Report count -->
+  <p id="countBar"></p>
+
+  <!-- 📈 Chart -->
+  <canvas id="centerChart" height="200"></canvas>
+
+  <!-- 📰 Feed -->
+  <div id="feedContainer"></div>
+
+  <!-- ⏩ Pagination -->
+  <div id="pagination" style="text-align:center; margin-top: 20px;"></div>
+
+  <script src="feed.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExamGuard - Report Form</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 40px;
+    }
+    input, textarea, button {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📢 Report Exam Issue (Anonymous)</h1>
+
+  <p id="countBar"></p>
+<div id="feedContainer"></div>
+<div id="pagination" style="text-align:center; margin-top: 20px;"></div>
+
+
+  <form id="reportForm">
+    <input type="text" name="examName" placeholder="Exam Name (e.g. NEET)" required />
+    <input type="text" name="centerName" placeholder="Exam Center Name" required />
+    <textarea name="description" placeholder="Describe the issue..." rows="5" required></textarea>
+    <input type="file" name="media" accept="image/*,video/*" />
+    <button type="submit">Submit Report</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
