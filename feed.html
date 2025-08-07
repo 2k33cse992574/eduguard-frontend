@@ -3,42 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EduGuard Feed</title>
+  <title>EduGuard - Verified Reports Feed</title>
   <link rel="stylesheet" href="feed.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>🛡️ EduGuard Live Feed</h1>
-
-  <!-- 🌐 Dark Mode Toggle -->
-  <label>
-    <input type="checkbox" id="darkToggle" />
-    🌙 Dark Mode
-  </label>
-
-  <!-- 🔍 Search & Clear -->
-  <div style="margin: 10px 0;">
-    <input type="text" id="searchInput" placeholder="Search by exam or center..." />
-    <button onclick="clearSearch()">❌ Clear</button>
+  <h1>✅ Verified Reports Feed</h1>
+  <div id="filters">
+    <button onclick="filterByExam('ALL')">All</button>
+    <button onclick="filterByExam('NEET')">NEET</button>
+    <button onclick="filterByExam('JEE')">JEE</button>
+    <button onclick="filterByExam('CUET')">CUET</button>
+    <button onclick="clearFilters()">Clear Filters</button>
   </div>
-
-  <!-- 🧮 Tag Filters -->
-  <div id="tagFilters"></div>
-
-  <!-- ⏳ Loading Spinner -->
-  <div id="loader" class="spinner"></div>
-
-  <!-- 📊 Report count -->
-  <p id="countBar"></p>
-
-  <!-- 📈 Chart -->
-  <canvas id="centerChart" height="200"></canvas>
-
-  <!-- 📰 Feed -->
-  <div id="feedContainer"></div>
-
-  <!-- ⏩ Pagination -->
-  <div id="pagination" style="text-align:center; margin-top: 20px;"></div>
+  <div id="feed"></div>
 
   <script src="feed.js"></script>
 </body>

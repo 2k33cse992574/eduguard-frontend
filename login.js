@@ -1,17 +1,17 @@
-document.getElementById("loginForm").addEventListener("submit", function (e) {
+const loginForm = document.getElementById("loginForm");
+const loginMessage = document.getElementById("loginMessage");
+
+loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-  // Hardcoded credentials (you can upgrade later)
-  const ADMIN_USER = "admin";
-  const ADMIN_PASS = "eduguard123";
-
-  if (username === ADMIN_USER && password === ADMIN_PASS) {
+  if (username === "admin" && password === "exam2025") {
     localStorage.setItem("isAdmin", "true");
-    window.location.href = "admin.html";
+    window.location.href = "dashboard.html";
   } else {
-    document.getElementById("error").innerText = "❌ Invalid credentials.";
+    loginMessage.textContent = "❌ Invalid credentials.";
+    loginMessage.style.color = "red";
   }
 });

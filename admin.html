@@ -2,123 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EduGuard Admin Panel</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-      background: #f4f8fc;
-    }
-
-    h2 {
-      text-align: center;
-      color: #333;
-    }
-
-    .report {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      background-color: #fff;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
-
-    .verified {
-      background-color: #e0ffe0;
-    }
-
-    img, video {
-      max-width: 100%;
-      margin-top: 10px;
-      border-radius: 4px;
-    }
-
-    #adminStats {
-      margin-bottom: 20px;
-      padding: 10px;
-      background: #dce9ff;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-
-    button {
-      margin: 5px 5px 5px 0;
-      padding: 8px 12px;
-      cursor: pointer;
-      border: none;
-      background-color: #1976d2;
-      color: white;
-      border-radius: 5px;
-      transition: background-color 0.2s ease-in-out;
-    }
-
-    button:hover {
-      background-color: #1259a4;
-    }
-
-    input[type="text"] {
-      padding: 8px;
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    input[type="checkbox"] {
-      margin-right: 10px;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-
-      button, input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verified Reports - EduGuard Admin</title>
+  <link rel="stylesheet" href="feed.css" />
 </head>
 <body>
-  <h2>🛡️ EduGuard Admin Panel</h2>
+  <h1>✅ Verified Reports</h1>
+  <div id="adminReportsContainer"></div>
 
-  <!-- 🔍 Search -->
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="🔍 Search exam or center..."
-    oninput="handleSearch(this.value)"
-  />
-
-  <!-- 🔘 Filters and Actions -->
-  <div style="margin-bottom: 10px;">
-    <button onclick="filterReports('all')">🔄 All</button>
-    <button onclick="filterReports('verified')">✅ Verified</button>
-    <button onclick="filterReports('pending')">❌ Pending</button>
-    <button onclick="verifySelectedReports()">✅ Verify Selected</button>
-    <button onclick="deleteSelectedReports()">🗑️ Delete Selected</button>
-    <button onclick="downloadPDF()">📄 Export PDF</button>
-    <button onclick="downloadCSV()">📊 Export CSV</button>
-  </div>
-
-  <!-- 📊 Stats -->
-  <div id="adminStats">Loading stats...</div>
-
-  <!-- 📋 Reports Container -->
-  <form id="reportForm">
-    <div id="adminContainer">Loading reports...</div>
-  </form>
-
-  <br />
-  <button onclick="logout()">🚪 Logout</button>
-
-  <!-- jsPDF for PDF Export -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>

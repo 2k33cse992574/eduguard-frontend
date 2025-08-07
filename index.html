@@ -1,40 +1,36 @@
-<!-- frontend/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ExamGuard - Report Form</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 40px;
-    }
-    input, textarea, button {
-      display: block;
-      margin: 10px 0;
-      width: 100%;
-      padding: 8px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduGuard - Report Cheating</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>📢 Report Exam Issue (Anonymous)</h1>
+  <div class="container">
+    <h1>📢 Report Exam Malpractice</h1>
+    <form id="reportForm" enctype="multipart/form-data">
+      <label for="examName">Exam Name*</label>
+      <input type="text" id="examName" name="examName" required />
 
-  <p id="countBar"></p>
-<div id="feedContainer"></div>
-<div id="pagination" style="text-align:center; margin-top: 20px;"></div>
+      <label for="centerName">Center Name*</label>
+      <input type="text" id="centerName" name="centerName" required />
 
+      <label for="description">Description*</label>
+      <textarea id="description" name="description" required></textarea>
 
-  <form id="reportForm">
-    <input type="text" name="examName" placeholder="Exam Name (e.g. NEET)" required />
-    <input type="text" name="centerName" placeholder="Exam Center Name" required />
-    <textarea name="description" placeholder="Describe the issue..." rows="5" required></textarea>
-    <input type="file" name="media" accept="image/*,video/*" />
-    <button type="submit">Submit Report</button>
-  </form>
+      <label for="media">Upload Media (optional)</label>
+      <input type="file" id="media" name="media" accept="image/*,video/*" />
 
-  <p id="message"></p>
+      <button type="submit">Submit Report</button>
+    </form>
+
+    <p id="message"></p>
+
+    <hr />
+
+    <a href="feed.html">🌍 View Public Reports</a>
+  </div>
 
   <script src="script.js"></script>
 </body>

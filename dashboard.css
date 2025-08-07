@@ -2,14 +2,14 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background-color: #f9f9f9;
-  color: #222;
+  background-color: #f2f2f2;
+  color: #333;
   transition: background-color 0.3s, color 0.3s;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .controls {
@@ -23,40 +23,26 @@ h1 {
 input[type="text"],
 select {
   padding: 10px;
-  border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 15px;
+  border-radius: 8px;
+  font-size: 16px;
   width: 200px;
 }
 
-#clearFilters {
-  padding: 10px 16px;
-  background-color: #ff4d4d;
-  border: none;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-#clearFilters:hover {
-  background-color: #e60000;
-}
-
-.report {
-  background-color: #fff;
+.card {
+  background-color: white;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   transition: background-color 0.3s;
 }
 
-.report h3 {
+.card h3 {
   margin-top: 0;
 }
 
-.report .tag-pill {
-  display: inline-block;
+.tag-pill {
   background-color: #007bff;
   color: white;
   padding: 4px 10px;
@@ -65,17 +51,18 @@ select {
   margin-left: 8px;
 }
 
-.report .timestamp {
-  font-size: 13px;
-  color: #777;
-  margin-top: 6px;
+.verify-btn {
+  padding: 8px 12px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
 }
 
-.report img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
+.verify-btn:hover {
+  background-color: #218838;
 }
 
 .pagination {
@@ -100,42 +87,27 @@ select {
   background-color: #0056b3;
 }
 
-#loading {
-  text-align: center;
-  font-size: 18px;
-  margin: 40px 0;
-}
-
-/* Dark mode */
-body.dark {
+.dark {
   background-color: #121212;
   color: #eee;
 }
 
-.dark .report {
-  background-color: #1e1e1e;
+.dark .card {
+  background-color: #1f1f1f;
   color: #eee;
 }
 
 .dark input,
 .dark select {
-  background-color: #2b2b2b;
+  background-color: #333;
   color: #eee;
   border: 1px solid #555;
 }
 
-.dark #clearFilters {
-  background-color: #ff3333;
+.dark .verify-btn {
+  background-color: #1db954;
 }
 
-.dark #clearFilters:hover {
-  background-color: #cc0000;
-}
-
-.dark .report .timestamp {
-  color: #aaa;
-}
-
-.dark .report img {
-  border-color: #555;
+.dark .verify-btn:hover {
+  background-color: #17a44b;
 }

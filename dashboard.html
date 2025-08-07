@@ -1,32 +1,71 @@
-<!-- frontend/dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ExamGuard - Dashboard</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 40px;
-    }
-    .report {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-    }
-    img, video {
-      max-width: 300px;
-      display: block;
-      margin-top: 10px;
-    }
-  </style>
+  <title>EduGuard - Admin Dashboard</title>
+  <link rel="stylesheet" href="feed.css" />
 </head>
 <body>
-  <h1>📊 Public Reports Dashboard</h1>
-  <div id="reportsContainer">Loading reports...</div>
+  <h1>📊 Admin Dashboard - Verify Reports</h1>
 
-  <script src="dashboard.js"></script>
+  <div id="unverifiedReportsContainer"></div>
+
+  <script>
+    const unverifiedReportsContainer = document.getElementById("unverifiedReportsContainer");
+
+    async function fetchUnverifiedReports() {
+      try {
+        const res = await fetch("https://eduguard-backend.onrender.com/api/reports/unverified");
+        const data = await res.json();
+
+        unverifiedReportsContainer.innerHTML = "";
+
+        if (data.length === 0) {
+          unverifiedReportsContainer.innerHTML = "<p>✅ All reports have been verified.</p>";
+          return;
+        }
+
+        data.forEach((report) => {
+          const card = document.createElement("div");
+          card.classList.add("report-card");
+
+          card.innerHTML = `
+            <p><strong>📘 Exam:</strong> ${report.examName}</p>
+            <p><strong>📍 Center:</strong> ${report.centerName}</p>
+            <p><strong>📝 Description:</strong> ${report.description}</p>
+            <p><strong>📸 Media:</strong> <a href="https://eduguard-backend.onrender.com/uploads/${report.media}" target="_blank">View File</a></p>
+            <p><strong>📅 Date:</strong> ${new Date(report.createdAt).toLocaleString()}</p>
+            <button onclick="verifyReport('${report._id}')">✅ Mark as Verified</button>
+          `;
+
+          unverifiedReportsContainer.appendChild(card);
+        });
+      } catch (err) {
+        console.error("Error loading unverified reports:", err);
+        unverifiedReportsContainer.innerHTML = "<p>❌ Failed to load unverified reports.</p>";
+      }
+    }
+
+    async function verifyReport(reportId) {
+      try {
+        const res = await fetch(`https://eduguard-backend.onrender.com/api/reports/verify/${reportId}`, {
+          method: "PATCH",
+        });
+
+        if (res.ok) {
+          alert("✅ Report verified successfully!");
+          fetchUnverifiedReports(); // Refresh list
+        } else {
+          alert("❌ Failed to verify report.");
+        }
+      } catch (err) {
+        console.error("Error verifying report:", err);
+        alert("❌ Network error during verification.");
+      }
+    }
+
+    fetchUnverifiedReports();
+  </script>
 </body>
 </html>
