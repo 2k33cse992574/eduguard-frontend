@@ -9,10 +9,10 @@ form.addEventListener("submit", async (e) => {
   const formData = new FormData(form);
 
   try {
-    const res = await fetch("https://exam-wsta.onrender.com/api/reports", {
+      const res = await fetch("https://eduguard-backend.onrender.com/api/reports", {
       method: "POST",
       body: formData,
-    });
+});
 
     if (res.ok) {
       message.textContent = "✅ Report submitted successfully!";
